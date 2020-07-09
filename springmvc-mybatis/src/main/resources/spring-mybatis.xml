@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- 关联数据库配置文件 -->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!-- 连接池 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driver}"/>
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${jdbcusername}"/>
+        <property name="password" value="${jdbcpassword}"/>
+
+        <!-- 设置最大连接池的大小 -->
+        <property name="maxPoolSize" value="30"/>
+        <!-- 设置最小连接池的大小 -->
+        <property name="minPoolSize" value="10"/>
+        <!-- 关闭连接后不自动提交 -->
+        <property name="autoCommitOnClose" value="false"/>
+        <!-- 设置连接超时时长 -->
+        <property name="checkoutTimeout" value="10000"/>
+        <!-- 失败后重新连接次数 -->
+        <property name="acquireRetryAttempts" value="2"/>
+    </bean>
+    <!-- SqlSessionFactory -->
+    <!-- 这里是获得SqlSessionFactory 通过将上一步的datasource引进来，创建SqlSessionFactory -->
+    <!-- 他对应的代码为Mybatis工具类里的
+            String resource = "mybatis-config.xml";
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+     -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    </bean>
+
+    <!-- SqlSessionTemplate -->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 配置Dao扫描包 实现Dao接口注入到Spring容器中 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.coderzoe.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+</beans>
