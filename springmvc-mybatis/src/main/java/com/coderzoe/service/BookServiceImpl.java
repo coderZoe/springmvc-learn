@@ -8,7 +8,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author yhs
@@ -30,6 +32,25 @@ public class BookServiceImpl {
 
     public void setBookMapper(BookMapper bookMapper) {
         this.bookMapper = bookMapper;
+    }
+
+    public int upadteBook(Book book){
+        return bookMapper.updateBook(book);
+    }
+
+    public int deleteBook(int id){
+        return bookMapper.deleteBook(id);
+    }
+
+    public List<Book> queryBookIf(String name, String details){
+        Map<String,String> map = new HashMap<>();
+        if(!"".equals(name)&&name!=null){
+            map.put("name",name);
+        }
+        if(!"".equals(details)&&details!=null){
+            map.put("details",details);
+        }
+        return bookMapper.queryBookIf(map);
     }
 
     @Test

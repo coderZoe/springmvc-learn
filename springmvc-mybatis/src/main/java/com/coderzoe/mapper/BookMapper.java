@@ -3,6 +3,7 @@ package com.coderzoe.mapper;
 import com.coderzoe.entity.Book;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author yhs
@@ -16,4 +17,5 @@ public interface BookMapper {
     int updateBook(Book book);
     List<Book> queryBook();
     Book queryById(int id);
+    List<Book> queryBookIf(Map<String,String> map);
 }

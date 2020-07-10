@@ -30,4 +30,18 @@ public class BookController {
         return bookServiceImpl.addBook(book)>0?"success":"fail";
     }
 
+    @PostMapping("/updateBook")
+    public String updateBook(Book book){
+        return bookServiceImpl.upadteBook(book)>0?"success":"fail";
+    }
+
+    @GetMapping("/deleteBook")
+    public String deleteBook(int id){
+        return bookServiceImpl.deleteBook(id)>0?"success":"fail";
+    }
+
+    @PostMapping("/getBookIf")
+    public List<Book> getBookIf(String name,String details){
+        return bookServiceImpl.queryBookIf(name,details);
+    }
 }
