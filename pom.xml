@@ -15,6 +15,7 @@
         <module>springmvc04</module>
         <module>springmvc05</module>
         <module>springmvc-mybatis</module>
+        <module>springmvc-ajax</module>
     </modules>
 
     <dependencies>

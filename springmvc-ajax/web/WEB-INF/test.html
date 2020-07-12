@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iframe测试</title>
+
+    <script type="text/javascript" src="../static/js/jquery-3.5.0.js"></script>
+
+    <script>
+        function a(){
+            $.get({
+                url:"http://localhost:8080/springmvc_ajax/test",
+                data:"",
+                success:""
+
+            })
+        }
+    </script>
+</head>
+<body>
+<div>
+    <p>请输入用户名</p>
+    <input type="text" id="name" onblur="a()">
+</div>
+</body>
+</html>

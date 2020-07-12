@@ -23,4 +23,15 @@
     <select id="queryById" resultType="com.coderzoe.entity.Book">
         select * from book where id = #{id}
     </select>
+    <select id="queryBookIf" resultType="com.coderzoe.entity.Book" parameterType="map">
+        select * from book
+        <where>
+            <if test="name!=null">
+                name like "%"#{name}"%"
+            </if>
+            <if test="details!=null">
+                and details like "%"#{details}"%"
+            </if>
+        </where>
+    </select>
 </mapper>
