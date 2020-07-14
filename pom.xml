@@ -16,6 +16,8 @@
         <module>springmvc05</module>
         <module>springmvc-mybatis</module>
         <module>springmvc-ajax</module>
+        <module>springmvc-interceptor</module>
+        <module>springmvc-fileDownOrUp</module>
     </modules>
 
     <dependencies>

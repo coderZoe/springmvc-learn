@@ -6,14 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springmvc-ajax" />
-        <module name="springmvc01" />
+        <module name="springmvc-interceptor" />
+        <module name="springmvc-fileDownOrUp" />
+        <module name="springmvc02" />
+        <module name="springmvc-mybatis" />
         <module name="springmvc05" />
         <module name="springmvc04" />
         <module name="springmvc03" />
-        <module name="springmvc02" />
-        <module name="springmvc-mybatis" />
+        <module name="springmvc-ajax" />
+        <module name="springmvc01" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="interceptor" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

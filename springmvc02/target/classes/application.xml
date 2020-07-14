@@ -4,15 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--?????-->
+    <!--Ó³ÉäÆ÷-->
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-    <!--??????-->
+    <!--ÊÊÅäÆ÷-->
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-    <!--?????????:DispatcherServlet??????ModelAndView-->
+    <!--ÊÓÍ¼½âÎöÆ÷:DispatcherServlet¸øËûµÄModelAndView-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="InternalResourceViewResolver">
-        <!--??-->
+        <!--Ç°×º-->
         <property name="prefix" value="/WEB-INF/jsp/"/>
-        <!--???-->
+        <!--ºó×º-->
         <property name="suffix" value=".jsp"/>
     </bean>
 

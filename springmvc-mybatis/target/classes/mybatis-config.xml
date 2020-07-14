@@ -3,11 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
-        <!-- ?????????? -->
+        <!-- 配置开启驼峰 -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <!-- ??????? -->
+        <!-- 配置日志 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
-        <!--   ?????????? ??????true    -->
+        <!--   开启全局缓存 默认值是true    -->
         <setting name="cacheEnabled" value="true"/>
     </settings>
 
